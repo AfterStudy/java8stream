@@ -1,0 +1,5 @@
+﻿.settings
+.classpath
+.project
+*.txt
+bin/*
