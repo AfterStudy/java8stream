@@ -2,6 +2,7 @@ package kr.niee.java;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class CollectionStreamStudy {
@@ -21,8 +22,6 @@ public class CollectionStreamStudy {
 		// TODO Auto-generated method stub
 		int sum = 0;
 		sum = streamList.stream().mapToInt(i -> i).sum();
-		System.out.println(streamList.stream().reduce(1, Integer::max));
-
 		return sum;
 	}
 
@@ -37,14 +36,14 @@ public class CollectionStreamStudy {
 
 	private static void createStreamList(List<Integer> streamList) {
 		// TODO Auto-generated method stub
-		IntStream.range(0, 10).filter(i -> i % 2 == 0).forEach(i -> streamList.add(i + 10));
+		IntStream.range(0, 10).filter(i -> i%2 == 0).map(i -> i +10).forEach(i -> streamList.add(i));
 	}
 
-	private static void createNonStreamList(List<Integer> list) {
+	private static void createNonStreamList(List<Integer> nonStreamList) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < 10; i++) {
 			if (i % 2 == 0)
-				list.add(i + 10);
+				nonStreamList.add(i + 10);
 		}
 	}
 
