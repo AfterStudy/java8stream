@@ -12,7 +12,7 @@ public class CollectionStreamStudy {
 		List<Integer> streamList = new ArrayList<>();
 
 		createNonStreamList(nonStreamList);
-		createStreamList(streamList);
+		streamList = createStreamList();
 
 		System.out.println(sumNonStreamList(nonStreamList));
 		System.out.println(sumStreamList(streamList));
@@ -34,9 +34,9 @@ public class CollectionStreamStudy {
 		return sum;
 	}
 
-	private static void createStreamList(List<Integer> streamList) {
+	private static List<Integer> createStreamList() {
 		// TODO Auto-generated method stub
-		IntStream.range(0, 10).filter(i -> i%2 == 0).map(i -> i +10).forEach(i -> streamList.add(i));
+		return IntStream.range(0, 10).filter(i -> i%2 == 0).map(i -> i +10).boxed().collect(Collectors.toList());
 	}
 
 	private static void createNonStreamList(List<Integer> nonStreamList) {
